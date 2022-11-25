@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="tour-entry">
+
+    <h1> Classified detailed info </h1>
+    <h2>Title: {{ classified.title }}</h2>
+    <p>Description: {{ classified.body }}</p>
+    <p>Location: {{ classified.area }}</p>    
+    <p>Contact: {{classified.author.first_name}}</p>
+    <p>Phone: {{classified.phone}}</p>
+
+    <div class="buttons">
+
+    <button class = 'button_classified'>
+      <a href="{% url 'classified_edit' classified.pk %}">Edit</a>
+    </button>
+
+    <button class = 'button_classified'>
+      <a href="{% url 'classified_delete' classified.pk %}">Delete</a>
+    </button>
+
+    </div>
+
+
+    
+
+
+  </div>
+
+{% endblock content %}

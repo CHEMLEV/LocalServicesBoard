@@ -1,0 +1,103 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  title
+  {
+    color: aqua;
+  }
+  
+  header
+  {
+    border-bottom: 5px solid dodgerblue;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    font-size: 35px;
+    color: grey;
+    text-decoration: none;
+  }
+
+  header
+  {
+    color: grey;
+    text-decoration: none;
+  }
+  
+  p1
+  {
+    color: green;
+    text-decoration: none;
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+  .tour-entry h2
+  {
+    color: black;
+    text-decoration: none;
+  }
+
+  h5
+  {
+    text-align: right;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+  }
+
+  
+  h4
+  {
+        padding-top: 5px;
+        text-decoration: none;
+        
+  }
+
+  p
+  {
+    color: black;    
+  }
+  
+  h3
+  {
+        padding: 0px;
+        margin: 0px;
+
+        text-decoration: none;
+        color: black;
+  }
+
+  h1
+  {
+   font-weight: bold;
+  }
+  
+
+  .location
+  {
+    color: red;
+    text-decoration: none;
+  }
+
+  .buttons
+  {
+    color: yellow;
+    text-decoration: none;
+  }
+
+a:link { color: black; text-decoration: none; }
+
+
+a:visited { color: black; text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+

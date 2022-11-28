@@ -10,6 +10,9 @@
     <p>Contact: {{classified.author.first_name}}</p>
     <p>Phone: {{classified.phone}}</p>
 
+
+    {% if user == classified.author %}
+        
     <div class="buttons">
 
     <button class = 'button_classified'>
@@ -21,7 +24,8 @@
     </button>
 
     </div>
-
+    
+    {% endif %}
 
     
 

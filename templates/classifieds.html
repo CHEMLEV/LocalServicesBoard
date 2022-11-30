@@ -1,19 +1,20 @@
 {% extends "base.html" %} {% block content %}
 
-<h1> CLASSIFIEDS </h1>
-<button class = 'button_classified'>
-    <a href="{% url 'classified_new' %}">Add new</a>
-  </button>
+    <div class="listings">
+        <h1>Listings</h1>
+        <a href="{% url 'classified_new' %}" class = 'button-light no-margin'>Add new</a>
+    </div>
+
 
 {% for classified in classified_list %}
 
 <div class="tour-entry">
+    <h2>{{classified.title}}</h2>
+    <p>Location: {{classified.area}}</p>
+    <a href=" {% url 'classified_detail' classified.pk %} " class="button-dark" >Learn More</a>
+</div>
 
-    <h2> <a href = " {% url 'classified_detail' classified.pk %} ">{{classified.title}} <div class = "location" >Location: {{classified.area}} </div> </a> </h2>
 
-    
-    
-    </div>
 
 {% endfor %}
 

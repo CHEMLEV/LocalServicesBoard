@@ -1,103 +1,117 @@
-body {
+body{
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
+    margin: 20px 80px 20px 80px;
   }
 
-  title
-  {
-    color: aqua;
+  title{
+    color: #02A7C1;
   }
   
-  header
-  {
-    border-bottom: 5px solid dodgerblue;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+  header{
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
     display: flex;
-    font-size: 35px;
-    color: grey;
     text-decoration: none;
-  }
-
-  header
-  {
-    color: grey;
-    text-decoration: none;
+    align-items: flex-end;
+    justify-content: space-between;
   }
   
-  p1
-  {
-    color: green;
+  p1{
+    color: #02A7C1;
     text-decoration: none;
-    font-size: 60px;
+    font-size: 30px;
     font-weight: bold;
   }
 
-  .tour-entry h2
-  {
-    color: black;
+  .button-light, button{
+    border: 1px solid #02A7C1;
+    padding: 10px 20px;
+    margin-left: 15px;
+    background-color: white;
+    color: #02A7C1 !important;
+    cursor: pointer;
+  }
+
+  .button-dark{
+    background-color: #02A7C1;
+    color: white !important;
+    padding: 10px 20px;
+  }
+
+  .button-light:hover, button:hover{
+    background-color: #02A7C1;
+    color: white !important;
+  }
+
+  .button-dark:hover{
+    text-decoration: underline;
+  }
+
+  .tour-entry{
+    margin-bottom: 50px;
+  }
+
+  .tour-entry h2{
+    color: #02A7C1;
     text-decoration: none;
   }
 
-  h5
-  {
+  .tour-entry p{
+    margin-bottom: 40px;
+  }
+
+  .placeholder{
+    color: lightgray;
+  }
+
+  h5{
     text-align: right;
     text-decoration: none;
-    color: black;
-    font-size: 20px;
+    color: #02A7C1;
+    font-size: 15px;
     font-weight: bold;
     margin: 0px;
   }
 
-  
-  h4
-  {
-        padding-top: 5px;
-        text-decoration: none;
-        
+  h4{
+    padding-top: 5px;
+    text-decoration: #333636;
   }
 
-  p
-  {
-    color: black;    
+  p{
+    color: #333636;
   }
   
-  h3
-  {
-        padding: 0px;
-        margin: 0px;
-
-        text-decoration: none;
-        color: black;
+  h3{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    color: #02A7C1;
   }
 
-  h1
-  {
-   font-weight: bold;
+  h1{
+    font-weight: bold;
+    color: #02A7C1;
   }
-  
 
-  .location
-  {
-    color: red;
+  a{
+    color: #02A7C1;
     text-decoration: none;
   }
 
-  .buttons
-  {
-    color: yellow;
-    text-decoration: none;
+  .no-margin, button{
+    margin: 20px 0 !important;
+
   }
 
-a:link { color: black; text-decoration: none; }
+  .listings h1{
+    display: inline-block;
+    margin-right: 20px;
+  }
 
-
-a:visited { color: black; text-decoration: none; }
-
-
-a:hover { text-decoration: none; }
-
-
-a:active { text-decoration: none; }
-
+  .button_classified a:hover{
+    color: white; !important;
+  }

@@ -11,32 +11,26 @@
     <title> Local Services Board </title> 
 </head>
 
-<body style="background-color: palegoldenrod;">
+<body>
     {% if user.is_authenticated %}
     <h5> Hi, {{user.first_name}}</h5>
     <h5><a href="{% url 'logout' %}">LOG OUT</a></h5>
     {% else %}
     <h5>You're not logged in</h5>
-    <h5><a href="{% url 'login' %}">LOG IN</a></h5>
-    <h5><a href="{% url 'signup' %}">SIGN UP</a></h5>
-
-
     {% endif %}
 
-    <p1> LOCAL SERVICES</p1>
-       
-       
-<header>
-    <a href="{% url 'home' %}">  HOME  </a> |
-    <a href="{% url 'classifieds' %}">  CLASSIFIEDS   </a> |
-    <a href="{% url 'about' %}">  ABOUT   </a>
-
-
-
-</header>
+    <header>
+        <p1>LocalServices</p1>
+        <div>
+            <a href="{% url 'home' %}" class="button-light">Home</a>
+            <a href="{% url 'classifieds' %}" class="button-light">Listings</a>
+            <a href="{% url 'about' %}" class="button-light">About</a>
+            <a href="{% url 'login' %}" class="button-light">Login</a>
+            <a href="{% url 'signup' %}" class="button-light">Signup</a>
+        </div>
+    </header>
 
 {% block content %} {% endblock content %}
-
 
 </body>
 </html>

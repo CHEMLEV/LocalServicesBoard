@@ -24,16 +24,10 @@
     <header>
         <p1>Local Services</p1>
         <div>
-
-            {% if user.is_authenticated == False %}
-            
-            {% endif %}
             
             <a href="{% url 'home' %}" class="button-light">Home</a>
             <a href="{% url 'classifieds' %}" class="button-light">Listings</a>
-            <a href="{% url 'about' %}" class="button-light">About</a>
-
-            
+            <a href="{% url 'about' %}" class="button-light">About</a>           
 
         </div>
     </header>

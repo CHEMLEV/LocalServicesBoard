@@ -28,6 +28,9 @@ body{
 
   .button-light, button{
     border: 1px solid #02A7C1;
+    min-width: 90px;
+    display: inline-block;
+    text-align: center;
     padding: 10px 20px;
     margin-left: 15px;
     background-color: white;
@@ -100,6 +103,7 @@ body{
   a{
     color: #02A7C1;
     text-decoration: none;
+    margin-left: 10px;
   }
 
   .no-margin, button{

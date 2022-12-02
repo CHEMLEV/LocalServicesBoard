@@ -13,20 +13,28 @@
 
 <body>
     {% if user.is_authenticated %}
-    <h5> Hi, {{user.first_name}}</h5>
-    <h5><a href="{% url 'logout' %}">LOG OUT</a></h5>
+    <h5> Hi, {{user.first_name}} &nbsp <a href="{% url 'logout' %}" >LOG OUT</a></h5>
+    
     {% else %}
-    <h5>You're not logged in</h5>
+    <h5>You're not logged in &nbsp <a href="{% url 'login' %}" >LOGIN</a> &nbsp <a href="{% url 'signup' %}">SIGNUP</a></h5>
     {% endif %}
+    <br>
+    <br>
 
     <header>
-        <p1>LocalServices</p1>
+        <p1>Local Services</p1>
         <div>
+
+            {% if user.is_authenticated == False %}
+            
+            {% endif %}
+            
             <a href="{% url 'home' %}" class="button-light">Home</a>
             <a href="{% url 'classifieds' %}" class="button-light">Listings</a>
             <a href="{% url 'about' %}" class="button-light">About</a>
-            <a href="{% url 'login' %}" class="button-light">Login</a>
-            <a href="{% url 'signup' %}" class="button-light">Signup</a>
+
+            
+
         </div>
     </header>
 

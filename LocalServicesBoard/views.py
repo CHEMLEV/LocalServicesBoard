@@ -36,8 +36,7 @@ class ReviewGet(DetailView):
         context["form"] = ReviewForm()
         return context
     
-class ReviewPost(SingleObjectMixin, PermissionRequiredMixin, FormView):
-    permission_required = "LocalServicesBoard.add_review"
+class ReviewPost(SingleObjectMixin, FormView):
     model = Classified
     form_class = ReviewForm
     template_name = "classified_detail.html"
@@ -50,7 +49,6 @@ class ReviewPost(SingleObjectMixin, PermissionRequiredMixin, FormView):
         review = form.save(commit=False)
         review.classified = self.object
         #form.instance.classified = self.request.classified
-        review.rating = 5
         form.instance.author = self.request.user
         review.save()
         return super().form_valid(form)

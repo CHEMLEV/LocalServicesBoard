@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import MainPageView, ClassifiedsListView, ClassifiedDetailsView, AboutPageView, ClassifiedUpdateView, ClassifiedDeleteView, ClassifiedCreateView
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -15,3 +16,5 @@ urlpatterns = [
     path("classified/new/", ClassifiedCreateView.as_view(), name = "classified_new"),
     
 ]
+
+urlpatterns += staticfiles_urlpatterns()

@@ -4,7 +4,7 @@
 {% block content %}
   <div class="tour-entry">
 
-    <h1>Classified Detailed Info</h1>
+    <h1>Listing detailed info:</h1>
     <h2>Title: {{ classified.title }}</h2>
     <p>Description: {{ classified.body }}</p>
     <p>Location: {{ classified.area }}</p>    
@@ -29,20 +29,20 @@
     {% endif %}
 
     <h4>Reviews</h4>
-    {% for review in classified.review_set.all %}
 
+    {% for review in classified.review_set.all %}
     <div class="tour-entry">
-        <p>{{ review.author }} {{ review }} </p>        
+        <p>{{ review.rating }} {{ review }} </p>        
     </div>
-    
     {% endfor %}
 
-
-    {% if perms.LocalServicesBoard.add_review %}
+    {% if user.is_authenticated %}
     <h4>Add New Review</h4>
     <button class = 'button_review'>
       <form action="" method="post">{% csrf_token %}
         {{ form|crispy }}
+        <br>
+        <br>
         <div><button class = 'button_review' type="submit">Save</button></div>
       </form>
     </button>

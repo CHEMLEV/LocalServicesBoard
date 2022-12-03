@@ -1,14 +1,17 @@
 from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView, FormView
+from django.views.generic.detail import SingleObjectMixin
 from .models import Classified
 from django.shortcuts import  render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy
+from .forms import NewUserForm, ReviewForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
+from django.urls import reverse_lazy, reverse
 
 
 
@@ -24,9 +27,50 @@ class ClassifiedsListView(ListView):
     model = Classified
     template_name = "classifieds.html"
 
+class ReviewGet(DetailView):
+    model = Classified
+    template_name = "classified_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = ReviewForm()
+        return context
+    
+class ReviewPost(SingleObjectMixin, PermissionRequiredMixin, FormView):
+    permission_required = "LocalServicesBoard.add_review"
+    model = Classified
+    form_class = ReviewForm
+    template_name = "classified_detail.html"
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().post(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        review = form.save(commit=False)
+        review.classified = self.object
+        #form.instance.classified = self.request.classified
+        review.rating = 5
+        form.instance.author = self.request.user
+        review.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        classified = self.get_object()
+        return reverse("classified_detail", kwargs={"pk": classified.pk})
+
+
 class ClassifiedDetailsView(DetailView): 
     model = Classified
     template_name = "classified_detail.html"
+
+    def get(self, request, *args, **kwargs):
+        view = ReviewGet.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = ReviewPost.as_view()
+        return view(request, *args, **kwargs)
 		
 
 def register_request(request):

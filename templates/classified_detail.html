@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   <div class="tour-entry">
@@ -27,7 +28,25 @@
     
     {% endif %}
 
+    <h4>Reviews</h4>
+    {% for review in classified.review_set.all %}
+
+    <div class="tour-entry">
+        <p>{{ review.author }} {{ review }} </p>        
+    </div>
     
+    {% endfor %}
+
+
+    {% if perms.LocalServicesBoard.add_review %}
+    <h4>Add New Review</h4>
+    <button class = 'button_review'>
+      <form action="" method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <div><button class = 'button_review' type="submit">Save</button></div>
+      </form>
+    </button>
+    {% endif %}
 
 
   </div>

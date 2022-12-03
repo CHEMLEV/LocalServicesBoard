@@ -6,10 +6,13 @@
 
     <h1>Listing detailed info:</h1>
     <h2>Title: {{ classified.title }}</h2>
-    <p>Description: {{ classified.body }}</p>
-    <p>Location: {{ classified.area }}</p>    
-    <p>Contact: {{classified.author.first_name}}</p>
-    <p>Phone: {{classified.phone}}</p>
+    <h4>Description: {{ classified.body }}
+      <br>   
+       Location: {{ classified.area }}   
+       <br> 
+       Contact: {{classified.author.first_name}}
+       <br>
+       Phone: {{classified.phone}}</h4>
 
 
     {% if user == classified.author %}
@@ -28,6 +31,12 @@
     
     {% endif %}
 
+    
+    {% if classified.review_set.count == 0 %}
+    
+    <h4>No reviews yet</h4>
+
+    {% else %}
     <h4>Reviews</h4>
 
     {% for review in classified.review_set.all %}
@@ -36,16 +45,17 @@
     </div>
     {% endfor %}
 
+    {% endif %}
+        
     {% if user.is_authenticated %}
-    <h4>Add New Review</h4>
-    <button class = 'button_review'>
+    <h4>Add your review</h4>
+    
       <form action="" method="post">{% csrf_token %}
         {{ form|crispy }}
-        <br>
-        <br>
+
         <div><button class = 'button_review' type="submit">Save</button></div>
       </form>
-    </button>
+    
     {% endif %}
 
 

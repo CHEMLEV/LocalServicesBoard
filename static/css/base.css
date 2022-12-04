@@ -82,7 +82,12 @@ body{
 
   h4{
     padding-top: 5px;
+    font-size: 20px; 
     text-decoration: #333636;
+  }
+
+  h6{
+    font-size: 15px; 
   }
 
   p{

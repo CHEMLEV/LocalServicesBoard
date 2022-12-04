@@ -4,7 +4,7 @@
 {% block content %}
   <div class="tour-entry">
 
-    <h1>Listing detailed info:</h1>
+    <h1>Listing</h1>
     <h2>Title: {{ classified.title }}</h2>
     <h4>Description: {{ classified.body }}
       <br>   
@@ -13,6 +13,8 @@
        Contact: {{classified.author.first_name}}
        <br>
        Phone: {{classified.phone}}</h4>
+       <br>
+       Published on: {{classified.date}}
 
 
     {% if user == classified.author %}
@@ -41,7 +43,15 @@
 
     {% for review in classified.review_set.all %}
     <div class="tour-entry">
-        <p>{{ review.rating }} {{ review }} </p>        
+      <h6>Raiting: {{ review.rating }}
+        <br>   
+         {{ review.title }}   
+         <br> 
+         {{review.body}}
+      </h6>
+       Published on: {{review.date}}
+        
+
     </div>
     {% endfor %}
 

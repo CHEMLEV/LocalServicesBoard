@@ -48,7 +48,7 @@ class Review (models.Model):
         else:
             rate = ""
         
-        return  rate + " " + self.title + " : " + self.body # + " Star " + str(self.rating) + " title:"
+        return  rate + " " + self.title + " : " + self.body + " : " + self.date.date # + " Star " + str(self.rating) + " title:"
 
     def get_absolute_url(self):
         return reverse ("classified_detail", kwargs={'pk': self.pk})

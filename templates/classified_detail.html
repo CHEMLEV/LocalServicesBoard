@@ -43,7 +43,7 @@
 
     {% for review in classified.review_set.all %}
     <div>
-      <h6>Raiting:  
+      <h6>Rating:  
         {% if review.rating == 1 %}
         <img src="{% static 'images/1star.png' %}" alt="1star" width="75" height="15" >
         {% elif review.rating == 2 %}

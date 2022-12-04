@@ -34,22 +34,6 @@ class Review (models.Model):
     body = models.TextField(max_length=300)
     date = models.DateTimeField(default=datetime.now, blank=True)
     
-    def __str__(self):
-        if self.rating == 1: 
-            rate = "⭐︎"
-        elif self.rating == 2:
-            rate = "⭐︎⭐︎"
-        elif self.rating == 3:
-            rate = "⭐︎⭐︎⭐︎"
-        elif self.rating == 4:
-            rate = "⭐︎⭐︎⭐︎⭐︎"
-        elif self.rating == 5:
-            rate = "⭐︎⭐︎⭐︎⭐︎⭐︎"
-        else:
-            rate = ""
-        
-        return  rate + " " + self.title + " : " + self.body + " : " + self.date.date # + " Star " + str(self.rating) + " title:"
-
     def get_absolute_url(self):
         return reverse ("classified_detail", kwargs={'pk': self.pk})
 

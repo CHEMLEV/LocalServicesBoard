@@ -9,9 +9,9 @@
 {% for classified in classified_list %}
 
 <div class="tour-entry">
-    <h2>{{classified.title}}</h2>
-    <p>Location: {{classified.area}}</p>
-    <a href=" {% url 'classified_detail' classified.pk %} " class="button-dark" >Learn More</a>
+    <h2><a href=" {% url 'classified_detail' classified.pk %} " >{{classified.title}}</a></h2>
+    <p>{{classified.area}}</p>
+    
 </div>
 
 

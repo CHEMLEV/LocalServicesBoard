@@ -11,7 +11,7 @@ body{
   
   header{
     border-bottom: 1px solid lightgrey;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
     display: flex;
     text-decoration: none;
@@ -33,7 +33,7 @@ body{
     display: inline-block;
     text-align: center;
     padding: 10px 20px;
-    margin-left: 15px;
+    margin-left: 0px;
     background-color: white;
     color: #02A7C1 !important;
     cursor: pointer;
@@ -43,6 +43,18 @@ body{
     background-color: #02A7C1;
     color: white !important;
     padding: 10px 20px;
+    margin-top: 0px;    
+  }
+  
+a{
+    color: #02A7C1;
+    text-decoration: none;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+  a:hover{
+    text-decoration: underline
   }
 
   .button-light:hover, button:hover{
@@ -54,9 +66,7 @@ body{
     text-decoration: underline;
   }
 
-  .tour-entry{
-    margin-bottom: 50px;
-  }
+  
 
   .tour-entry h2{
     color: #02A7C1;
@@ -80,20 +90,28 @@ body{
     margin: 0px;
   }
 
-  h4{
-    padding-top: 5px;
+  h4{  
     font-size: 20px; 
     text-decoration: #333636;
+    margin-bottom: 7px;
+    margin-top: 7px;
   }
 
   h6{
-    font-size: 15px; 
+    font-size: 15px;
+    margin-bottom: 7px;
+    margin-top: 7px;
   }
 
   p{
     color: #333636;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;    
+  }
+
+  h2{
+    
+    margin-bottom: 10px;
   }
   
   h3{
@@ -108,11 +126,7 @@ body{
     color: #02A7C1;
   }
 
-  a{
-    color: #02A7C1;
-    text-decoration: none;
-    margin-left: 10px;
-  }
+  
 
   .no-margin, button{
     margin: 20px 0 !important;

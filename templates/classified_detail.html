@@ -20,15 +20,12 @@
 
     {% if user == classified.author %}
         
-    <div class="buttons">
-
-    <button class = 'button_classified'>
-      <a href="{% url 'classified_edit' classified.pk %}">Edit</a>
-    </button>
-
-    <button class = 'button_classified'>
-      <a href="{% url 'classified_delete' classified.pk %}">Delete</a>
-    </button>
+    <div>
+ 
+      <a href="{% url 'classified_edit' classified.pk %}" class="button-light">Edit</a>
+    
+      <a href="{% url 'classified_delete' classified.pk %}" class="button-light">Delete</a>
+    
 
     </div>
     

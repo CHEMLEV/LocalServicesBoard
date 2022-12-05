@@ -34,7 +34,7 @@
     <h2>Reviews</h2>
 
     {% if classified.review_set.count == 0 %}
-        <h4>No reviews yet</h4>
+        <h4>No reviews yet</h4><br>
     {% else %}
     
 
@@ -74,8 +74,7 @@
     
       <form action="" method="post">{% csrf_token %}
         {{ form|crispy }}
-
-        <div><button class = 'button_review' type="submit">Save</button></div>
+        <div><button class="button-light" type="submit">Save</button></div>
       </form>
     
     {% endif %}

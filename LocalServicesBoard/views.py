@@ -3,7 +3,7 @@ User = settings.AUTH_USER_MODEL
 
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView, FormView
 from django.views.generic.detail import SingleObjectMixin
-from .models import Classified
+from .models import Classified, Review
 from django.shortcuts import  render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
@@ -125,4 +125,54 @@ class ClassifiedCreateView(LoginRequiredMixin, CreateView):  # new
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
+class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): 
+    model = Review
+    fields = (
+        "rating",
+        "title",
+        "body"
+    )
+    template_name = "Review_edit.html"
+
+    def test_func(self):  # new
+        obj = self.get_object()
+        return obj.author == self.request.user
+    def get_success_url(self):
+        review = self.get_object()
+        return reverse("classified_detail", kwargs={"pk": review.classified_id})
+
+class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView): 
+    model = Review
+    fields = (
+        "title",
+        "body",
+    )
+    template_name = "Review_delete.html"
+
+    def test_func(self):  # new
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+    def get_success_url(self):
+        review = self.get_object()
+        return reverse_lazy("classified_detail", kwargs={"pk": review.classified_id})
+
+
+class ReviewCreateView(LoginRequiredMixin, CreateView):  # new
+    model = Review
+    template_name = "review_new.html"
+    fields = ("rating", "title", "body")
+
+    def form_valid(self, form):
+        refmodel = Classified
+        review = form.save(commit=False)
+        review.classified = refmodel.objects.get(pk=self.kwargs['pk'])
+        form.instance.author = self.request.user
+        review.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        review = self.get_object()
+        return reverse("classified_detail", kwargs={"pk": self.kwargs['pk']})
 

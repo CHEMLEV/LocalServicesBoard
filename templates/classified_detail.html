@@ -54,6 +54,12 @@
        
     
         {% endif %}
+        &nbsp; &nbsp; 
+        {% if user == review.author %}
+        <a href="{% url 'review_edit' review.pk %}" >Edit</a> &nbsp; 
+        <a href="{% url 'review_delete' review.pk %}" >Delete</a> &nbsp; 
+        {% endif %}
+  
         <br>   
          {{ review.title }}</h6>   
         
@@ -62,22 +68,15 @@
          
        Author: {{review.author.first_name}}<br>
        Published on: {{review.date}}<br> <br>
-        
-
+   
+   
     </div>
     {% endfor %}
 
     {% endif %}
-        
-    {% if user.is_authenticated %}
-    <h6>Add new review</h6>
-    
-      <form action="" method="post">{% csrf_token %}
-        {{ form|crispy }}
 
-        <div><button class = 'button_review' type="submit">Save</button></div>
-      </form>
-    
+    {% if user.is_authenticated %}
+    <a href="{% url 'review_new' classified.pk %}" class="button-light">Add new review</a>
     {% endif %}
 
 

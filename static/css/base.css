@@ -28,7 +28,7 @@ body{
   }
 
   .button-light, button{
-    border: 1px solid #02A7C1;
+    border: 2px solid #02A7C1;
     min-width: 90px;
     display: inline-block;
     text-align: center;

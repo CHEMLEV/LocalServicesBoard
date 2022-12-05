@@ -29,7 +29,8 @@ body{
 
   .button-base{
     border: 2px solid #02A7C1;
-    min-width: 200px;
+    min-width: 270px;
+    font-size: 22px;
     display: inline-block;
     text-align: center;
     padding: 10px 20px;
@@ -41,8 +42,10 @@ body{
 
   .button-light{
     border: 2px solid  #02A7C1 !important;
-    min-width: 70px !important;
-    display: inline-block;
+    width: 100px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+    display: inline-block !important;
     text-align: center;
     padding: 10px 20px;
     margin-top: 10px;
@@ -50,7 +53,36 @@ body{
     background-color: white;
     color: #02A7C1 !important;
     cursor: pointer;
+    border-radius: 5px;
   }
+
+  form{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    
+    width: 20%;
+    } 
+
+  button[type=submit] {
+    border: 2px solid  #02A7C1 !important;
+    width: 130px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    display: inline-block !important;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: white;
+    color: #02A7C1 !important;
+    cursor: pointer;
+    border-radius: 5px;    
+}
+
+button[type=submit]:hover{
+  background-color: #02A7C1 !important;
+  color: white !important;
+  font-weight: bold;
+}
 
   .button-add{
     border: 2px solid #02A7C1 !important;
@@ -63,13 +95,14 @@ body{
     background-color: white;
     color: #02A7C1 !important;
     cursor: pointer;
+    border-radius: 5px;   
   }
 
   .button-dark{
     background-color: #02A7C1;
     color: white !important;
     padding: 10px 20px;
-    margin-top: 0px;    
+    margin-top: 20px;    
   }
   
 a{
@@ -79,17 +112,14 @@ a{
     margin-top: 0px;
   }
 
-  a:hover{
-    text-decoration: underline
-  }
-
-  .button-light:hover, .button-add:hover, .button-base:hover{
+  .button-light:hover, .button-add:hover, .button-base:hover {
     background-color: #02A7C1;
     color: white !important;
+    font-weight: bold;
   }
 
   .button-dark:hover{
-    text-decoration: underline;
+    font-weight: bold;
   }
 
   

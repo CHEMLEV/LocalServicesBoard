@@ -19,12 +19,12 @@
 
 
     {% if user == classified.author %}
-        
+    <h6>This is your listing. You can edit or delete it. </h6>
     <div>
  
       <a href="{% url 'classified_edit' classified.pk %}" class="button-light">Edit</a>
     
-      <a href="{% url 'classified_delete' classified.pk %}" class="button-light">Delete</a>
+      <a href="{% url 'classified_delete' classified.pk %}" class="button-light">Delete</a><br><br>
     
 
     </div>
@@ -40,7 +40,7 @@
 
     {% for review in classified.review_set.all %}
     <div>
-      <h6>Rating:  
+      <h6><br>Rating:  
         {% if review.rating == 1 %}
         <img src="{% static 'images/1star.png' %}" alt="1star" width="75" height="15" >
         {% elif review.rating == 2 %}
@@ -50,30 +50,29 @@
         {% elif review.rating == 4 %}
         <img src="{% static 'images/4stars.png' %}" alt="4stars" width="75" height="15" >
         {% elif review.rating == 5 %}
-        <img src="{% static 'images/5stars.png' %}" alt="5stars" width="75" height="15" >
-       
-    
+        <img src="{% static 'images/5stars.png' %}" alt="5stars" width="75" height="15" >          
         {% endif %}
-        &nbsp; &nbsp; 
-        {% if user == review.author %}
-        <a href="{% url 'review_edit' review.pk %}" >Edit</a> &nbsp; 
-        <a href="{% url 'review_delete' review.pk %}" >Delete</a> &nbsp; 
-        {% endif %}
-  
-        <br>   
-         {{ review.title }}</h6>   
+        <br>
         
-         {{review.body}}
-         <br>
+        {{ review.title }}</h6>         
+        {{review.body}}
+        <br>
          
        Author: {{review.author.first_name}}<br>
-       Published on: {{review.date}}<br> <br>
+       Published on: {{review.date}}<br>
+       {% if user == review.author %}
+       <h6>This is your review. You can edit or delete it. </h6>
+        <a href="{% url 'review_edit' review.pk %}" class="button-light" >Edit</a> &nbsp; 
+        <a href="{% url 'review_delete' review.pk %}" class="button-light" >Delete</a> &nbsp; 
+      {% endif %}
    
    
     </div>
     {% endfor %}
 
     {% endif %}
+    <br>
+    <br>
 
     {% if user.is_authenticated %}
     <a href="{% url 'review_new' classified.pk %}" class="button-light">Add new review</a>

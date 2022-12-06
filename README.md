@@ -1,1 +1,1 @@
-This a project by a Whitecliffe student to develope a local service board
+This a project by a group of Whitecliffe student to develope a local service board

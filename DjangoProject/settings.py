@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'LocalServicesBoard.apps.LocalservicesboardConfig',
     'accounts.apps.AccountsConfig',
+    # crispy-form for the project
     'crispy_forms',
 ]
 

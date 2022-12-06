@@ -34,13 +34,13 @@
     <h2>Reviews</h2>
 
     {% if classified.review_set.count == 0 %}
-        <h4>No reviews yet</h4><br>
+        <h4>No reviews yet</h4>
     {% else %}
     
 
     {% for review in classified.review_set.all %}
     <div>
-      <h6><br>Rating:  
+      <h6>Rating:  
         {% if review.rating == 1 %}
         <img src="{% static 'images/1star.png' %}" alt="1star" width="75" height="15" >
         {% elif review.rating == 2 %}
@@ -72,7 +72,7 @@
 
     {% endif %}
     <br>
-    <br>
+    
 
     {% if user.is_authenticated %}
     <a href="{% url 'review_new' classified.pk %}" class="button-light">Add new review</a>
